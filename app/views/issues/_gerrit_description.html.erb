@@ -1,0 +1,18 @@
+<% if User.current.allowed_to?(:gerrit_access, @project) %>
+	<% content_for :header_tags do %>
+		<%= stylesheet_link_tag 'gerrit', :plugin => 'gerrit' %>
+		<%= javascript_include_tag 'gerrit', :plugin => 'gerrit' %>
+	<% end %>
+	
+	<hr />
+	<div>
+		<div class="contextual">
+			<a href="https://gerrit.moc.net/#/q/tr:<%= issue.id %>,n,z" target="_gerrit">Search Gerrit</a>
+		</div>
+		<p><strong class="lala">Changes</strong></p>
+		<div id="gerrit-changes-<%= issue.id %>" class="gerrit-changes" data-issues-id="<%= issue.id %>">
+			<p>loading...</p>
+		</div>
+	<div>
+<% end %>
+
