@@ -1,9 +1,9 @@
-<% if User.current.allowed_to?(:gerrit_access, @project) %>
+<% if User.current.allowed_to?(:view_gerrit_changes, @project) %>
 	<% content_for :header_tags do %>
-		<%= stylesheet_link_tag 'gerrit', :plugin => 'gerrit' %>
-		<%= javascript_include_tag 'gerrit', :plugin => 'gerrit' %>
+		<%= stylesheet_link_tag 'moc_redmine', :plugin => 'moc_redmine' %>
+		<%= javascript_include_tag 'moc_redmine', :plugin => 'moc_redmine' %>
 	<% end %>
-	
+
 	<hr />
 	<div>
 		<div class="contextual">

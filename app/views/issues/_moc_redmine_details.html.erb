@@ -1,4 +1,4 @@
-<% if User.current.allowed_to?(:view_polls, @project) %>
+<% if User.current.allowed_to?(:view_gerrit_changes, @project) %>
 	<tr>
 		<th>Review:</th>
 		<td colspan="3"><a href="https://gerrit.moc.net/#/q/tr:<%= issue.id %>,n,z" class="user active" target="_gerrit">Lookup <%= issue.tracker %> #<%= issue.id %> in Gerit</a></td>

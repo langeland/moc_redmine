@@ -1,4 +1,5 @@
 var response;
+var gerritUrl = 'https://gerrit.moc.net/';
 
 $(function () {
 	$('.gerrit-changes').each(function (index) {
@@ -37,11 +38,10 @@ $(function () {
 		}
 
 		function _success(data, textStatus, jqXHR) {
-			console.log(data);
 			response = data;
 
 			container.html(
-					'<table class="list issues changes">' +
+					'<table class="list changes">' +
 							'	<thead>' +
 							'		<tr>' +
 							'			<th></th>' +
@@ -65,8 +65,7 @@ $(function () {
 				$('tbody', container).append(
 						'<tr id="change-' + change._number + '" class="odd status-' + change.status + '">' +
 								'	<td class=""></td>' +
-								'	<td class="subject"><a href="https://gerrit.moc.net/' + change._number + '" target="_gerrit">' + change.subject + ' (' + change.status + ')</a></td>' +
-								'	<td class="owner">' + change.owner.name + '</td>' +
+								'	<td class="subject"><a href="' + gerritUrl + change._number + '" target="_gerrit">' + change.subject + ' (' + change.status + ')</a></td>' +
 								'	<td class="project">' + change.project + '</td>' +
 								'	<td class="branch">' + change.branch + '</td>' +
 								'	<td class="updated">' + updated.format("d. mmm") + '</td>' +
@@ -75,6 +74,9 @@ $(function () {
 								'</tr>'
 				);
 			});
+
+			$('tbody tr:odd', container).addClass('odd');
+			$('tbody tr:even', container).addClass('even');
 		}
 	});
 

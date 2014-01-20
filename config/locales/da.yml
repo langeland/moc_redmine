@@ -1,0 +1,3 @@
+# Danisk strings go here for Rails i18n
+da:
+  permission_view_gerrit_changes: Se ændringer fra Gerrit

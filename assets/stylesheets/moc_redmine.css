@@ -1,0 +1,55 @@
+table.changes {
+}
+
+table.changes tr td.cr span, table.changes tr td.v span {
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+table.changes tr td.cr span:before, table.changes tr td.v span:before {
+	content: '•';
+	font-size: 20px;
+	margin: 0 3px 0 0;
+	line-height: 12px;
+}
+
+
+table.changes tr td.cr.approved span:before, table.changes tr td.v.approved span:before {
+	color: green;
+}
+
+table.changes tr td.cr.rejected span:before, table.changes tr td.v.rejected span:before {
+	color: red;
+}
+
+
+
+table.changes tr td.cr.recommended span:before, table.changes tr td.v.recommended span:before {
+	color: yellow;
+	content: '?';
+}
+
+table.changes tr td.cr.disliked span:before, table.changes tr td.v.disliked span:before {
+	color: yellow;
+	content: '?';
+}
+
+table.changes tr td.cr.value span:before, table.changes tr td.v.value span:before {
+	color: yellow;
+	content: '?';
+}
+
+table.changes tr td.cr.optional span:before, table.changes tr td.v.optional span:before {
+	color: yellow;
+	content: '?';
+}
+
+table.changes tr td.cr.all span:before, table.changes tr td.v.all span:before {
+	color: yellow;
+	content: '?';
+}
+
+table.changes tr td.cr.values span:before, table.changes tr td.v.values span:before {
+	color: yellow;
+	content: '?';
+}

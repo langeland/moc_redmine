@@ -1,3 +1,3 @@
-= gerrit
+= moc_redmine
 
 Description goes here
