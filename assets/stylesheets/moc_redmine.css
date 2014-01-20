@@ -1,6 +1,10 @@
 table.changes {
 }
 
+table.changes tr td.owner {
+	white-space: nowrap;
+}
+
 table.changes tr td.cr span, table.changes tr td.v span {
 	white-space: nowrap;
 	vertical-align: top;
@@ -13,7 +17,6 @@ table.changes tr td.cr span:before, table.changes tr td.v span:before {
 	line-height: 12px;
 }
 
-
 table.changes tr td.cr.approved span:before, table.changes tr td.v.approved span:before {
 	color: green;
 }
@@ -21,8 +24,6 @@ table.changes tr td.cr.approved span:before, table.changes tr td.v.approved span
 table.changes tr td.cr.rejected span:before, table.changes tr td.v.rejected span:before {
 	color: red;
 }
-
-
 
 table.changes tr td.cr.recommended span:before, table.changes tr td.v.recommended span:before {
 	color: yellow;

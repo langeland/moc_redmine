@@ -63,11 +63,12 @@ $(function () {
 				var updated = new Date(change.updated);
 				var status = getStatus(change);
 				$('tbody', container).append(
-						'<tr id="change-' + change._number + '" class="odd status-' + change.status + '">' +
+						'<tr id="change-' + change._number + '" class="odd status-' + change.status.toLowerCase() + '">' +
 								'	<td class=""></td>' +
 								'	<td class="subject"><a href="' + gerritUrl + change._number + '" target="_gerrit">' + change.subject + ' (' + change.status + ')</a></td>' +
-								'	<td class="project">' + change.project + '</td>' +
-								'	<td class="branch">' + change.branch + '</td>' +
+								'	<td class="owner"><a href="' + gerritUrl + '#/q/owner:' + encodeURI('"' + change.owner.name + '"') + '+status:' + change.status.toLowerCase() + ',n,z" target="_gerrit">' + change.owner.name + '</a></td>' +
+								'	<td class="project"><a href="' + gerritUrl + '#/q/status:merged+project:' + change.project + ',n,z" target="_gerrit">' + change.project + '</a></td>' +
+								'	<td class="branch"><a href="' + gerritUrl + '#/q/status:merged+project:' + change.project + '+branch:' + change.branch + ',n,z" target="_gerrit">' + change.branch + '</a></td>' +
 								'	<td class="updated">' + updated.format("d. mmm") + '</td>' +
 								'	<td class="cr ' + status.v.state + '"><span>' + status.cr.name + '</span></td>' +
 								'	<td class="v ' + status.v.state + '"><span>' + status.v.name + '</span></td>' +
