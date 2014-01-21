@@ -39,12 +39,13 @@ $(function () {
 
 		function _success(data, textStatus, jqXHR) {
 			response = data;
+			console.log(response);
 
 			container.html(
 					'<table class="list changes">' +
 							'	<thead>' +
 							'		<tr>' +
-							'			<th></th>' +
+							//'			<th></th>' +
 							'			<th>Subject</th>' +
 							'			<th>Owner</th>' +
 							'			<th>Project</th>' +
@@ -63,14 +64,14 @@ $(function () {
 				var updated = new Date(change.updated);
 				var status = getStatus(change);
 				$('tbody', container).append(
-						'<tr id="change-' + change._number + '" class="odd status-' + change.status.toLowerCase() + '">' +
-								'	<td class=""></td>' +
+						'<tr id="change-' + change._number + '" class="status-' + change.status.toLowerCase() + '">' +
+								// '	<td class=""></td>' +
 								'	<td class="subject"><a href="' + gerritUrl + change._number + '" target="_gerrit">' + change.subject + ' (' + change.status + ')</a></td>' +
 								'	<td class="owner"><a href="' + gerritUrl + '#/q/owner:' + encodeURI('"' + change.owner.name + '"') + '+status:' + change.status.toLowerCase() + ',n,z" target="_gerrit">' + change.owner.name + '</a></td>' +
 								'	<td class="project"><a href="' + gerritUrl + '#/q/status:merged+project:' + change.project + ',n,z" target="_gerrit">' + change.project + '</a></td>' +
 								'	<td class="branch"><a href="' + gerritUrl + '#/q/status:merged+project:' + change.project + '+branch:' + change.branch + ',n,z" target="_gerrit">' + change.branch + '</a></td>' +
 								'	<td class="updated">' + updated.format("d. mmm") + '</td>' +
-								'	<td class="cr ' + status.v.state + '"><span>' + status.cr.name + '</span></td>' +
+								'	<td class="cr ' + status.cr.state + '"><span>' + status.cr.name + '</span></td>' +
 								'	<td class="v ' + status.v.state + '"><span>' + status.v.name + '</span></td>' +
 								'</tr>'
 				);
@@ -83,14 +84,30 @@ $(function () {
 
 
 	function getStatus(change) {
+		if(change.labels["Code-Review"]){
+			var cr_state = Object.keys(change.labels["Code-Review"])[0];
+			var cr_name = change.labels["Code-Review"][Object.keys(change.labels["Code-Review"])[0]].name;
+		} else {
+			var cr_state = 'none';
+			var cr_name = '';
+		}
+
+		if(change.labels["Verified"]){
+			var v_state = Object.keys(change.labels["Verified"])[0];
+			var v_name = change.labels["Verified"][Object.keys(change.labels["Verified"])[0]].name;
+		} else {
+			var v_state = 'none';
+			var v_name = '';
+		}
+
 		var status = {
 			cr: {
-				state: Object.keys(change.labels["Code-Review"])[0],
-				name: change.labels["Code-Review"][Object.keys(change.labels["Code-Review"])[0]].name
+				state: cr_state,
+				name: cr_name
 			},
 			v: {
-				state: Object.keys(change.labels["Verified"])[0],
-				name: change.labels["Verified"][Object.keys(change.labels["Verified"])[0]].name
+				state: v_state,
+				name: v_name
 			}
 		};
 

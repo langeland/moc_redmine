@@ -1,6 +1,15 @@
 table.changes {
 }
 
+table.list.changes tbody tr.odd:hover {
+	background-color: #f6f7f8;
+}
+
+table.list.changes tbody tr.even:hover {
+	background-color: #ffffff;
+}
+
+
 table.changes tr td.owner {
 	white-space: nowrap;
 }
@@ -15,42 +24,45 @@ table.changes tr td.cr span:before, table.changes tr td.v span:before {
 	font-size: 20px;
 	margin: 0 3px 0 0;
 	line-height: 12px;
+	color: #BBBBBB;
+}
+
+table.changes tr td.cr.none span:before, table.changes tr td.v.none span:before {
+	display: none;
 }
 
 table.changes tr td.cr.approved span:before, table.changes tr td.v.approved span:before {
-	color: green;
+	color: #C7DD5E;
 }
 
 table.changes tr td.cr.rejected span:before, table.changes tr td.v.rejected span:before {
-	color: red;
+	color: #FF726D;
 }
 
 table.changes tr td.cr.recommended span:before, table.changes tr td.v.recommended span:before {
-	color: yellow;
-	content: '?';
+	content: '+';
+	color: #C7DD5E;
+	font-size: 12px;
 }
 
 table.changes tr td.cr.disliked span:before, table.changes tr td.v.disliked span:before {
-	color: yellow;
-	content: '?';
+	content: '-';
+	color: #FF726D;
+	font-size: 12px;
 }
 
 table.changes tr td.cr.value span:before, table.changes tr td.v.value span:before {
-	color: yellow;
 	content: '?';
 }
 
 table.changes tr td.cr.optional span:before, table.changes tr td.v.optional span:before {
-	color: yellow;
 	content: '?';
 }
 
 table.changes tr td.cr.all span:before, table.changes tr td.v.all span:before {
-	color: yellow;
 	content: '?';
 }
 
 table.changes tr td.cr.values span:before, table.changes tr td.v.values span:before {
-	color: yellow;
 	content: '?';
 }
