@@ -1,7 +1,40 @@
 <% if User.current.allowed_to?(:view_gerrit_changes, @project) %>
+	<!--
 	<tr>
 		<th>Review:</th>
 		<td colspan="3"><a href="https://gerrit.moc.net/#/q/tr:<%= issue.id %>,n,z" class="user active" target="_gerrit">Lookup <%= issue.tracker %> #<%= issue.id %> in Gerit</a></td>
 	</tr>
+	-->
 <% end %>
+<% if User.current.allowed_to?(:view_timelog_clippy, @project) %>
+	<tr>
+		<th>
+			TimeLog:
 
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+				width="110"
+				height="14"
+				id="clippy" >
+			<param name="movie" value="/plugin_assets/moc_redmine/flash/clippy.swf"/>
+			<param name="allowScriptAccess" value="always" />
+			<param name="quality" value="high" />
+			<param name="scale" value="noscale" />
+			<param NAME="FlashVars" value="text=<%= issue.tracker %> #<%= issue.id %> - <%= issue.subject %>">
+			<param name="bgcolor" value="#ffffdd">
+			<embed src="/plugin_assets/moc_redmine/flash/clippy.swf"
+				width="110"
+				height="14"
+				name="clippy"
+				quality="high"
+				allowScriptAccess="always"
+				type="application/x-shockwave-flash"
+				pluginspage="http://www.macromedia.com/go/getflashplayer"
+				FlashVars="text=<%= issue.tracker %> #<%= issue.id %> - <%= issue.subject %>"
+				bgcolor="#ffffdd"
+			/>
+		</th>
+		<td colspan="3">
+			<%= issue.tracker %> #<%= issue.id %> - <%= issue.subject %>
+		</td>
+	</tr>
+<% end %>

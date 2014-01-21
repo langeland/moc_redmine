@@ -15,7 +15,7 @@ class MocRedmineHookListener < Redmine::Hook::ViewListener
 		#return content_tag("p", "view_issues_show_description_bottom :: Custom content added to the description bottom")
 	end
 
-	#render_on :view_issues_show_details_bottom, :partial => "issues/moc_redmine_details"
+	render_on :view_issues_show_details_bottom, :partial => "issues/moc_redmine_details"
 	render_on :view_issues_show_description_bottom, :partial => "issues/moc_redmine_description"
 
 end

@@ -8,4 +8,5 @@ Redmine::Plugin.register :moc_redmine do
 	url 'http://moc.net'
 	author_url 'http://moc.net'
 	permission :view_gerrit_changes, :gerrit_changes => :view
+	permission :view_timelog_clippy, :timelog_clippy => :view
 end

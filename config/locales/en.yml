@@ -1,3 +1,4 @@
 # English strings go here for Rails i18n
 en:
   permission_view_gerrit_changes: View changes from gerrit
+  permission_view_timelog_clippy: Show TimeLog clipboard helper
