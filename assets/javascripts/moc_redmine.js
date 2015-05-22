@@ -8,7 +8,7 @@ $(function () {
 
 		var gerritRequest = $.ajax({
 			dataType: "json",
-			url: 'http://gerrit.moc.net/changes/',
+			url: gerritUrl + '/changes/',
 			data: 'o=LABELS&q=tr:' + issueId,
 			crossDomain: true,
 			xhrFields: {
