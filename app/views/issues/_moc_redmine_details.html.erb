@@ -19,7 +19,7 @@
 			<param name="allowScriptAccess" value="always" />
 			<param name="quality" value="high" />
 			<param name="scale" value="noscale" />
-			<param NAME="FlashVars" value="text=<%= issue.tracker %> #<%= issue.id %> - <%= issue.subject %>">
+			<param NAME="FlashVars" value="text=#<%= issue.id %> - <%= issue.subject %>">
 			<param name="bgcolor" value="#ffffdd">
 			<embed src="/plugin_assets/moc_redmine/flash/clippy.swf"
 				width="110"
@@ -30,11 +30,11 @@
 				type="application/x-shockwave-flash"
 				pluginspage="http://www.macromedia.com/go/getflashplayer"
 				FlashVars="text=<%= issue.tracker %> #<%= issue.id %> - <%= issue.subject %>"
-				bgcolor="#ffffdd"
+				bgcolor="#ffffff"
 			/>
 		</th>
 		<td colspan="3">
-			<%= issue.tracker %> #<%= issue.id %> - <%= issue.subject %>
+			#<%= issue.id %> - <%= issue.subject %>
 		</td>
 	</tr>
 <% end %>
